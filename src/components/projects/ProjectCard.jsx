@@ -21,12 +21,13 @@ const ProjectCard = ({ src, title, tag, index }) => {
     bounds.current = cardRef.current.getBoundingClientRect()
 
     // ── Image: zoom IN + go brighter + more saturated
-    gsap.to(imgRef.current, {
+    if (imgRef.current) {
+  gsap.to(imgRef.current,  {
       scale: 1.13,
       filter: 'brightness(1.35) saturate(1.6) contrast(1.08)',
       duration: 0.9,
       ease: 'power3.out',
-    })
+    })}
 
     // ── Glow burst from center (accent colour, not black)
     gsap.to(glowRef.current, {
