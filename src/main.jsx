@@ -10,6 +10,8 @@ import './index.css'
 import Stairs from './components/common/Stairs.jsx'
 import NavContext from './context/NavContext.jsx'
 
+import './index.css'
+
 // ── Register all GSAP plugins once globally
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin)
 
