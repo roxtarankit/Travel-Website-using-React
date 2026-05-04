@@ -11,7 +11,6 @@ const HomeHeroText = () => {
   useGSAP(() => {
     const tl = gsap.timeline({ delay: 0.3 })
 
-    // Lines drop in staggered
     tl.from('.hero-line', {
       yPercent: 110,
       opacity: 0,
@@ -20,7 +19,6 @@ const HomeHeroText = () => {
       ease: 'power4.out',
     })
 
-    // Badge fades in
     tl.from('.hero-badge', {
       opacity: 0,
       y: 12,
@@ -28,7 +26,6 @@ const HomeHeroText = () => {
       ease: 'power2.out',
     }, '-=0.4')
 
-    // Buttons pop in
     tl.from('.hero-btn', {
       opacity: 0,
       y: 20,
@@ -38,7 +35,6 @@ const HomeHeroText = () => {
       ease: 'back.out(1.4)',
     }, '-=0.3')
 
-    // Scroll indicator
     tl.from('.scroll-hint', {
       opacity: 0,
       duration: 0.8,
@@ -60,21 +56,15 @@ const HomeHeroText = () => {
 
       {/* ── Hero lines ── */}
       <div className="font-[font1] uppercase leading-none">
-
         <div className="overflow-hidden">
-          <div
-            className="hero-line text-[13vw] lg:text-[9.5vw] leading-[0.9] tracking-tight"
-          >
+          <div className="hero-line text-[13vw] lg:text-[9.5vw] leading-[0.9] tracking-tight">
             For Those
           </div>
         </div>
 
         <div className="overflow-hidden">
-          <div
-            className="hero-line flex items-center justify-center gap-[2vw] text-[13vw] lg:text-[9.5vw] leading-[0.9] tracking-tight"
-          >
+          <div className="hero-line flex items-center justify-center gap-[2vw] text-[13vw] lg:text-[9.5vw] leading-[0.9] tracking-tight">
             <span>Who</span>
-            {/* Video pill */}
             <div className="h-[7vw] w-[16vw] rounded-full overflow-hidden opacity-90 border border-white/20">
               <Video />
             </div>
@@ -96,11 +86,13 @@ const HomeHeroText = () => {
         </p>
       </div>
 
-      {/* ── CTA Buttons ── */}
+      {/* ── CTA Buttons — both side by side, same size ── */}
       <div className="flex items-center gap-4 mt-10">
+
+        {/* Explore Places */}
         <button
           onClick={() => navigate('/projects')}
-          className="hero-btn group relative overflow-hidden border border-white/30 text-white text-[11px] uppercase tracking-[0.3em] px-8 py-4 rounded-full hover:border-[#D3FD50] transition-colors duration-500"
+          className="hero-btn group relative overflow-hidden border border-white/30 text-white text-base uppercase tracking-[0.3em] px-12 py-5 rounded-full hover:border-[#D3FD50] transition-colors duration-500"
         >
           <span className="relative z-10 group-hover:text-black transition-colors duration-300">
             Explore Places
@@ -108,12 +100,17 @@ const HomeHeroText = () => {
           <span className="absolute inset-0 bg-[#D3FD50] translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-full" />
         </button>
 
+        {/* Our Story — same size as Explore Places */}
         <button
           onClick={() => navigate('/agence')}
-          className="hero-btn group relative overflow-hidden bg-white/10 backdrop-blur-sm text-white text-[11px] uppercase tracking-[0.3em] px-8 py-4 rounded-full hover:bg-white/20 transition-all duration-500 border border-white/10"
+          className="hero-btn group relative overflow-hidden border border-white/30 text-white text-base uppercase tracking-[0.3em] px-12 py-5 rounded-full hover:border-white/60 transition-colors duration-500 backdrop-blur-sm bg-white/5"
         >
-          Our Story
+          <span className="relative z-10 group-hover:text-black transition-colors duration-300">
+            Our Story
+          </span>
+          <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-full" />
         </button>
+
       </div>
 
       {/* ── Scroll hint ── */}
